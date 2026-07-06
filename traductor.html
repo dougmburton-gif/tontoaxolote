@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traductor Divertido | Tonto Axolote</title>
+<meta name="description" content="Un traductor de frases con humor para aprender inglés — el ajolote traduce modismos y expresiones comunes con notas culturales.">
+<style>
+  :root{
+    --cream:#fbf3e3; --honey:#f4b942; --honey-deep:#d99a2b;
+    --leaf:#7fae6a; --leaf-deep:#5c8a49;
+    --brown:#6b4a2f; --brown-deep:#4a3220;
+    --ink:#3a2a1a; --card:#fffdf8; --card-edge:#e8d9b8;
+    --sky:#a8d8e8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Comic Sans MS","Trebuchet MS",Verdana,sans-serif;
+    background:linear-gradient(180deg, var(--sky) 0%, var(--cream) 35%);
+    color:var(--ink);
+    min-height:100%;
+  }
+  #topnav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px; background:rgba(255,253,248,.85); backdrop-filter:blur(6px);
+    border-bottom:4px solid var(--honey); flex-wrap:wrap; gap:10px;
+  }
+  #topnav .brand{
+    font-size:22px; font-weight:bold; color:var(--brown-deep); text-decoration:none;
+    display:flex; align-items:center; gap:8px;
+  }
+  #topnav .nav-links{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+  .nav-btn{
+    display:inline-flex; align-items:center; gap:6px;
+    background:var(--leaf); color:#fff; text-decoration:none;
+    padding:9px 16px; border-radius:999px; font-weight:bold; font-size:14px;
+    border:2px solid var(--leaf-deep); transition:transform .15s ease;
+  }
+  .nav-btn:hover{ transform:translateY(-2px); }
+  .nav-btn.horses{ background:var(--brown); border-color:var(--brown-deep); }
+  .nav-btn.kids{
+    background:var(--honey); border-color:var(--honey-deep); color:#4a3300;
+    animation:glow 1.6s ease-in-out infinite;
+  }
+  @keyframes glow{
+    0%,100%{ box-shadow:0 0 8px 2px rgba(244,185,66,.5); }
+    50%{ box-shadow:0 0 20px 8px rgba(244,185,66,.85); }
+  }
+  .wrap{ max-width:720px; margin:0 auto; padding:40px 20px 60px; }
+  .masthead{ text-align:center; margin-bottom:30px; }
+  .masthead h1{ font-size:2rem; color:var(--brown-deep); margin-bottom:8px; }
+  .masthead p{ color:var(--brown); font-size:.95rem; }
+
+  .translator-card{
+    background:var(--card); border:3px solid var(--card-edge); border-radius:20px;
+    padding:24px; margin-bottom:24px;
+  }
+  #phraseSearch{
+    width:100%; padding:12px 16px; border-radius:999px; border:2px solid var(--card-edge);
+    font-family:inherit; font-size:1rem; margin-bottom:16px; color:var(--ink);
+  }
+  #phraseSearch:focus{ outline:none; border-color:var(--honey); }
+  .phrase-row{
+    display:flex; align-items:center; gap:14px; padding:14px 10px;
+    border-bottom:1px dashed var(--card-edge);
+  }
+  .phrase-row:last-child{ border-bottom:none; }
+  .phrase-row .es{ flex:1; font-weight:bold; color:var(--brown-deep); }
+  .phrase-row .arrow{ color:var(--honey-deep); font-size:1.2rem; }
+  .phrase-row .en{ flex:1; color:var(--leaf-deep); font-weight:bold; }
+  .phrase-row .note{ display:block; font-weight:normal; font-size:.75rem; color:var(--brown); margin-top:3px; }
+  .no-results{ text-align:center; color:var(--brown); padding:20px; font-style:italic; }
+
+  #sitefooter{
+    text-align:center; padding:20px; font-size:.75rem; color:var(--brown);
+  }
+  #sitefooter a{ color:var(--brown-deep); }
+  #sitefooter .disclaimer{ max-width:600px; margin:8px auto 0; opacity:.8; line-height:1.5; }
+</style>
+</head>
+<body>
+
+<nav id="topnav">
+  <a href="index.html" class="brand">🦎 Tonto Axolote</a>
+  <div class="nav-links">
+    <a href="traductor.html" class="nav-btn">🗣️ Traductor</a>
+    <a href="caballos.html" class="nav-btn horses">🐴 Razas de Caballos</a>
+    <a href="ninos.html" class="nav-btn kids">✨ Para los Niños ✨</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="masthead">
+    <h1>🗣️ Traductor Divertido</h1>
+    <p>El ajolote traduce frases y modismos comunes al inglés — con humor y una nota cultural para que se te quede grabado.</p>
+  </div>
+
+  <div class="translator-card">
+    <input type="text" id="phraseSearch" placeholder="Busca una frase en español..." autocomplete="off">
+    <div id="phraseList"></div>
+    <div class="no-results" id="noResults" style="display:none;">El ajolote no encontró esa frase — ¡prueba con otra!</div>
+  </div>
+</div>
+
+<div id="sitefooter">
+  &copy; Tonto Axolote &middot; <a href="index.html">Inicio</a>
+  <p class="disclaimer">Este traductor cubre frases comunes con fines educativos y de entretenimiento — no es un traductor completo ni sustituye a un hablante nativo o un servicio profesional de traducción.</p>
+</div>
+
+<script>
+(function(){
+  const PHRASES = [
+    { es: "¿Qué onda?", en: "What's up?", note: "Saludo informal muy común en México y otros países." },
+    { es: "No hay bronca", en: "No worries / It's all good", note: "Literal: 'there's no fight' — se usa para decir que todo está bien." },
+    { es: "Estoy en las nubes", en: "I'm daydreaming", note: "Literal: 'I'm in the clouds' — cuando no estás prestando atención." },
+    { es: "Más vale tarde que nunca", en: "Better late than never", note: "Un dicho que existe casi igual en los dos idiomas." },
+    { es: "Echarle ganas", en: "To give it your all", note: "Muy usado para animar a alguien a esforzarse." },
+    { es: "Qué oso", en: "How embarrassing", note: "Literal: 'what a bear' — expresión de vergüenza, común en México." },
+    { es: "Ponte las pilas", en: "Get your act together", note: "Literal: 'put in your batteries' — para decirle a alguien que se apure o se enfoque." },
+    { es: "Estar como agua para chocolate", en: "To be extremely angry", note: "Dicho mexicano — hace referencia a que el agua para el chocolate debe hervir muy caliente." },
+    { es: "Tirar la toalla", en: "To throw in the towel", note: "Se usa casi igual en inglés — significa darse por vencido." },
+    { es: "No tener pelos en la lengua", en: "To not mince words", note: "Literal: 'to have no hairs on your tongue' — hablar sin filtro." },
+    { es: "Camarón que se duerme, se lo lleva la corriente", en: "The early bird catches the worm", note: "Dicho equivalente, aunque la imagen literal es distinta — un camarón dormido y la corriente del agua." },
+    { es: "A otro perro con ese hueso", en: "Tell it to someone who'll believe you", note: "Literal: 'to another dog with that bone' — para cuando no le crees algo a alguien." },
+    { es: "Estar en pañales", en: "To be a beginner", note: "Literal: 'to be in diapers' — cuando apenas estás empezando algo." },
+    { es: "Hacer de tripas corazón", en: "To make the best of a bad situation", note: "Literal: 'to make heart out of guts' — sacar valor de donde no hay." },
+    { es: "Ser pan comido", en: "To be a piece of cake", note: "Ambos idiomas usan comida para decir que algo es fácil." },
+    { es: "No dar el brazo a torcer", en: "To not back down", note: "Literal: 'to not let your arm be twisted' — ser terco, mantenerse firme." },
+    { es: "Costar un ojo de la cara", en: "To cost an arm and a leg", note: "Ambos idiomas usan partes del cuerpo para decir que algo es muy caro." },
+    { es: "Meter la pata", en: "To put your foot in your mouth", note: "Los dos idiomas usan el pie para decir que cometiste un error." },
+    { es: "Dar en el clavo", en: "To hit the nail on the head", note: "Expresión casi idéntica en los dos idiomas." },
+    { es: "Ser un aguafiestas", en: "To be a party pooper", note: "Literal: 'water-party-person' — alguien que arruina la diversión." }
+  ];
+
+  const $ = id => document.getElementById(id);
+  const listEl = $('phraseList');
+  const noResultsEl = $('noResults');
+
+  function render(filter){
+    const f = (filter || '').trim().toLowerCase();
+    const filtered = PHRASES.filter(p => !f || p.es.toLowerCase().includes(f) || p.en.toLowerCase().includes(f));
+    listEl.innerHTML = '';
+    if (filtered.length === 0){
+      noResultsEl.style.display = 'block';
+      return;
+    }
+    noResultsEl.style.display = 'none';
+    filtered.forEach(p => {
+      const row = document.createElement('div');
+      row.className = 'phrase-row';
+      row.innerHTML = `<span class="es">${p.es}</span><span class="arrow">→</span><span class="en">${p.en}<span class="note">${p.note}</span></span>`;
+      listEl.appendChild(row);
+    });
+  }
+
+  $('phraseSearch').addEventListener('input', e => render(e.target.value));
+  render('');
+})();
+</script>
+</body>
+</html>

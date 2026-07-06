@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tonto Axolote — Calculadora, Clima, Traductor y Diversión</title>
+<meta name="description" content="El ajolote y el carpincho te ayudan con la calculadora, el clima, un traductor divertido, y juegos para niños — todo con humor para hispanohablantes.">
+<style>
+  :root{
+    --cream:#fbf3e3; --honey:#f4b942; --honey-deep:#d99a2b;
+    --leaf:#7fae6a; --leaf-deep:#5c8a49;
+    --brown:#6b4a2f; --brown-deep:#4a3220;
+    --ink:#3a2a1a; --card:#fffdf8; --card-edge:#e8d9b8;
+    --sky:#a8d8e8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Comic Sans MS","Trebuchet MS",Verdana,sans-serif;
+    background:linear-gradient(180deg, var(--sky) 0%, var(--cream) 35%);
+    color:var(--ink);
+    min-height:100%;
+    overflow-x:hidden;
+  }
+  .clouds{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;}
+  .cloud{position:absolute; background:#fff; border-radius:50%; opacity:.8; filter:blur(1px);}
+  #topnav{
+    position:relative; z-index:10; display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px; background:rgba(255,253,248,.85); backdrop-filter:blur(6px);
+    border-bottom:4px solid var(--honey); flex-wrap:wrap; gap:10px;
+  }
+  #topnav .brand{
+    font-size:22px; font-weight:bold; color:var(--brown-deep); text-decoration:none;
+    display:flex; align-items:center; gap:8px;
+  }
+  #topnav .nav-links{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+  .nav-btn{
+    display:inline-flex; align-items:center; gap:6px;
+    background:var(--leaf); color:#fff; text-decoration:none;
+    padding:9px 16px; border-radius:999px; font-weight:bold; font-size:14px;
+    border:2px solid var(--leaf-deep); transition:transform .15s ease;
+  }
+  .nav-btn:hover{ transform:translateY(-2px); }
+  .nav-btn.horses{ background:var(--brown); border-color:var(--brown-deep); }
+  .nav-btn.kids{
+    background:var(--honey); border-color:var(--honey-deep); color:#4a3300;
+    animation:glow 1.6s ease-in-out infinite;
+    box-shadow:0 0 0 rgba(244,185,66,.7);
+  }
+  @keyframes glow{
+    0%,100%{ box-shadow:0 0 8px 2px rgba(244,185,66,.5); }
+    50%{ box-shadow:0 0 20px 8px rgba(244,185,66,.85); }
+  }
+
+  .hero{
+    position:relative; z-index:5; text-align:center; padding:60px 20px 40px;
+  }
+  .hero h1{
+    font-size:2.4rem; color:var(--brown-deep); text-shadow:2px 2px 0 var(--cream);
+    margin-bottom:10px;
+  }
+  .hero p{ font-size:1.05rem; max-width:560px; margin:0 auto; color:var(--brown); line-height:1.6; }
+
+  .mascots{
+    position:relative; z-index:5; display:flex; justify-content:center; gap:40px;
+    margin:30px 0 50px; flex-wrap:wrap;
+  }
+  .mascot{ text-align:center; }
+  .mascot .emoji{ font-size:4.5rem; display:block; filter:drop-shadow(0 6px 6px rgba(0,0,0,.15)); }
+  .mascot .label{ font-weight:bold; color:var(--brown-deep); margin-top:6px; font-size:.9rem; }
+
+  .cards{
+    position:relative; z-index:5; max-width:900px; margin:0 auto; padding:0 20px 60px;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+  }
+  @media (max-width:700px){ .cards{ grid-template-columns:1fr; } }
+  .card{
+    background:var(--card); border:3px solid var(--card-edge); border-radius:20px;
+    padding:22px; text-align:center; text-decoration:none; color:var(--ink);
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .card:hover{ transform:translateY(-4px); border-color:var(--honey); }
+  .card .icon{ font-size:2.6rem; display:block; margin-bottom:10px; }
+  .card h3{ color:var(--brown-deep); margin-bottom:6px; font-size:1.1rem; }
+  .card p{ font-size:.82rem; color:var(--brown); line-height:1.5; }
+
+  #sitefooter{
+    position:relative; z-index:5; text-align:center; padding:20px; font-size:.75rem;
+    color:var(--brown); background:rgba(255,253,248,.7);
+  }
+  #sitefooter a{ color:var(--brown-deep); }
+  #sitefooter .disclaimer{ max-width:600px; margin:8px auto 0; opacity:.8; line-height:1.5; }
+</style>
+</head>
+<body>
+<div class="clouds" id="clouds"></div>
+
+<nav id="topnav">
+  <a href="index.html" class="brand">🦎 Tonto Axolote</a>
+  <div class="nav-links">
+    <a href="traductor.html" class="nav-btn">🗣️ Traductor</a>
+    <a href="caballos.html" class="nav-btn horses">🐴 Razas de Caballos</a>
+    <a href="ninos.html" class="nav-btn kids">✨ Para los Niños ✨</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>El ajolote y el carpincho te ayudan hoy</h1>
+  <p>Calculadora, clima, un traductor con humor, y juegos para toda la familia — todo con una sonrisa, como debe ser.</p>
+</div>
+
+<div class="mascots">
+  <div class="mascot"><span class="emoji">🦎</span><div class="label">El Ajolote</div></div>
+  <div class="mascot"><span class="emoji">🐹</span><div class="label">El Carpincho</div></div>
+  <div class="mascot"><span class="emoji">🦜</span><div class="label">El Quetzal</div></div>
+  <div class="mascot"><span class="emoji">🦥</span><div class="label">El Perezoso</div></div>
+</div>
+
+<div class="cards">
+  <a class="card" href="traductor.html">
+    <span class="icon">🗣️</span>
+    <h3>Traductor Divertido</h3>
+    <p>Frases y modismos traducidos al inglés, con humor y notas culturales — perfecto para aprender.</p>
+  </a>
+  <a class="card" href="caballos.html">
+    <span class="icon">🐴</span>
+    <h3>Razas de Caballos</h3>
+    <p>Un directorio de razas de caballos, para quienes sienten ese cariño especial por los caballos.</p>
+  </a>
+  <a class="card" href="ninos.html">
+    <span class="icon">✨</span>
+    <h3>Para los Niños</h3>
+    <p>Once animales de Latinoamérica enseñan palabras en inglés y español — jugando y aprendiendo juntos.</p>
+  </a>
+</div>
+
+<div id="sitefooter">
+  &copy; Tonto Axolote
+  <p class="disclaimer">Este sitio se ofrece con fines de entretenimiento y educación general. No sustituye el asesoramiento profesional. Tonto Axolote no se hace responsable de las decisiones tomadas con base en este contenido.</p>
+</div>
+
+<script>
+(function(){
+  const clouds = document.getElementById('clouds');
+  for(let i=0;i<8;i++){
+    const c = document.createElement('div');
+    c.className = 'cloud';
+    const s = 40 + Math.random()*90;
+    c.style.width = s+'px';
+    c.style.height = (s*0.55)+'px';
+    c.style.left = (Math.random()*100)+'%';
+    c.style.top = (Math.random()*35)+'%';
+    c.style.animation = `drift ${30+Math.random()*30}s linear infinite`;
+    clouds.appendChild(c);
+  }
+  const style = document.createElement('style');
+  style.textContent = '@keyframes drift{from{transform:translateX(-10vw);}to{transform:translateX(110vw);}}';
+  document.head.appendChild(style);
+})();
+</script>
+</body>
+</html>
