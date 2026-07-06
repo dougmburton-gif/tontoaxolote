@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦎</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Traductor Divertido | Tonto Axolote</title>
 <meta name="description" content="Un traductor de frases con humor para aprender inglés — el ajolote traduce modismos y expresiones comunes con notas culturales.">
@@ -40,6 +41,7 @@
   .nav-btn:hover{ transform:translateY(-2px); }
   .nav-btn.horses{ background:var(--brown); border-color:var(--brown-deep); }
   .nav-btn.month{ background:#f2a0b8; border-color:#c96e8a; }
+  .nav-btn.memory{ background:#5f9ab8; border-color:#3f7690; }
   .nav-btn.kids{
     background:var(--honey); border-color:var(--honey-deep); color:#4a3300;
     animation:glow 1.6s ease-in-out infinite;
@@ -88,6 +90,7 @@
     <a href="traductor.html" class="nav-btn">🗣️ Traductor</a>
     <a href="caballos.html" class="nav-btn horses">🐴 Razas de Caballos</a>
     <a href="palabra-del-mes.html" class="nav-btn month">📅 Palabra del Mes</a>
+<a href="trucos-de-memoria.html" class="nav-btn memory">🧠 Trucos de Memoria</a>
     <a href="ninos.html" class="nav-btn kids">✨ Para los Niños ✨</a>
   </div>
 </nav>
@@ -160,5 +163,6 @@
   render('');
 })();
 </script>
+<script src="tip-widget.js"></script>
 </body>
 </html>
