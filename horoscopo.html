@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦎</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9232900363298551" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horóscopo Diario | Tonto Axolote</title>
+<meta name="description" content="Horóscopo diario gratuito para los 12 signos del zodiaco, con elemento, planeta regente y rasgos de cada signo.">
+<style>
+  :root{
+    --cream:#fbf3e3; --honey:#f4b942; --honey-deep:#d99a2b;
+    --leaf:#7fae6a; --leaf-deep:#5c8a49;
+    --brown:#6b4a2f; --brown-deep:#4a3220;
+    --ink:#3a2a1a; --card:#fffdf8; --card-edge:#e8d9b8;
+    --sky:#a8d8e8; --sky-deep:#5f9ab8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{ font-family:"Comic Sans MS","Trebuchet MS",Verdana,sans-serif; background:linear-gradient(180deg, var(--sky) 0%, var(--cream) 35%); color:var(--ink); min-height:100%; }
+  #topnav{ display:flex; align-items:center; justify-content:space-between; padding:14px 24px; background:rgba(255,253,248,.85); backdrop-filter:blur(6px); border-bottom:4px solid var(--honey); flex-wrap:wrap; gap:10px; }
+  #topnav .brand{ font-size:22px; font-weight:bold; color:var(--brown-deep); text-decoration:none; display:flex; align-items:center; gap:8px; }
+  #topnav .nav-links{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+  .nav-btn{ display:inline-flex; align-items:center; gap:6px; background:var(--leaf); color:#fff; text-decoration:none; padding:9px 16px; border-radius:999px; font-weight:bold; font-size:14px; border:2px solid var(--leaf-deep); transition:transform .15s ease; }
+  .nav-btn:hover{ transform:translateY(-2px); }
+  .nav-btn.horses{ background:var(--brown); border-color:var(--brown-deep); }
+  .nav-btn.month{ background:#f2a0b8; border-color:#c96e8a; }
+  .nav-btn.memory{ background:#5f9ab8; border-color:#3f7690; }
+  .nav-btn.lottery{ background:#c9944f; border-color:#a06f2f; }
+  .nav-btn.horoscope{ background:#9b6fc9; border-color:#6f3fa0; }
+  .nav-btn.numerology{ background:#6fc9a0; border-color:#3fa06f; }
+  .nav-btn.kids{ background:var(--honey); border-color:var(--honey-deep); color:#4a3300; animation:glow 1.6s ease-in-out infinite; }
+  @keyframes glow{ 0%,100%{ box-shadow:0 0 8px 2px rgba(244,185,66,.5); } 50%{ box-shadow:0 0 20px 8px rgba(244,185,66,.85); } }
+  .wrap{ max-width:720px; margin:0 auto; padding:40px 20px 60px; }
+  .masthead{ text-align:center; margin-bottom:20px; }
+  .masthead h1{ font-size:2rem; color:var(--brown-deep); margin-bottom:8px; }
+  .masthead p{ color:var(--brown); font-size:.95rem; }
+  .sign-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:20px; }
+  @media (max-width:520px){ .sign-grid{ grid-template-columns:repeat(3,1fr); } }
+  .sign-btn{ display:flex; flex-direction:column; align-items:center; gap:4px; background:var(--card); border:3px solid var(--card-edge); border-radius:14px; padding:12px 4px; cursor:pointer; font-family:inherit; color:var(--brown-deep); }
+  .sign-btn:hover{ border-color:var(--honey); }
+  .sign-btn.active{ border-color:var(--leaf); background:#f3f9ee; }
+  .sign-btn .sym{ font-size:1.5rem; }
+  .sign-btn .name{ font-size:.68rem; }
+  .reading-card{ background:var(--card); border:3px solid var(--card-edge); border-radius:20px; padding:20px; margin-top:20px; display:none; }
+  .reading-card.show{ display:block; }
+  .reading-card .sign-title{ display:flex; align-items:center; gap:10px; margin-bottom:6px; }
+  .reading-card .sign-title .sym{ font-size:2rem; }
+  .reading-card h2{ margin:0; color:var(--brown-deep); }
+  .reading-card .meta{ font-size:.75rem; color:var(--brown); margin-bottom:14px; }
+  .reading-card .today{ font-size:.95rem; line-height:1.6; padding:12px 0; border-top:2px dashed var(--card-edge); border-bottom:2px dashed var(--card-edge); margin-bottom:12px; }
+  .trait-row{ display:flex; gap:16px; flex-wrap:wrap; font-size:.78rem; color:var(--brown); }
+  .trait-row strong{ color:var(--brown-deep); }
+  .cta-line{ font-size:.8rem; margin-top:16px; }
+  .cta-line a{ color:var(--leaf-deep); font-weight:bold; }
+  .draw-btn{ background:#fff; color:var(--brown); border:2px solid var(--card-edge); border-radius:999px; padding:8px 16px; font-size:.8rem; cursor:pointer; font-family:inherit; margin-top:10px; }
+  #sitefooter{ text-align:center; padding:20px; font-size:.75rem; color:var(--brown); }
+  #sitefooter a{ color:var(--brown-deep); }
+  #sitefooter .disclaimer{ max-width:600px; margin:8px auto 0; opacity:.8; line-height:1.5; }
+  @media print{ #topnav, .sign-grid, .draw-btn, #ta-tip-widget, #sitefooter, .cta-line{ display:none !important; } }
+</style>
+</head>
+<body>
+
+<nav id="topnav">
+  <a href="index.html" class="brand">🦎 Tonto Axolote</a>
+  <div class="nav-links">
+    <a href="traductor.html" class="nav-btn">🗣️ Traductor</a>
+    <a href="caballos.html" class="nav-btn horses">🐴 Razas de Caballos</a>
+    <a href="palabra-del-mes.html" class="nav-btn month">📅 Palabra del Mes</a>
+    <a href="trucos-de-memoria.html" class="nav-btn memory">🧠 Trucos de Memoria</a>
+    <a href="loteria.html" class="nav-btn lottery">🎰 Números de la Suerte</a>
+    <a href="horoscopo.html" class="nav-btn horoscope">✨ Horóscopo</a>
+    <a href="numerologia.html" class="nav-btn numerology">🔢 Numerología</a>
+    <a href="ninos.html" class="nav-btn kids">✨ Para los Niños ✨</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="masthead">
+    <h1>✨ Horóscopo Diario</h1>
+    <p>Elige tu signo para ver la lectura de hoy, además de su elemento, planeta regente y rasgos.</p>
+  </div>
+
+  <div class="sign-grid" id="signGrid"></div>
+
+  <div class="reading-card" id="readingCard">
+    <div class="sign-title"><span class="sym" id="rSym"></span><h2 id="rName"></h2></div>
+    <div class="meta" id="rDates"></div>
+    <div class="today" id="rToday"></div>
+    <div class="trait-row">
+      <span><strong>Elemento:</strong> <span id="rElement"></span></span>
+      <span><strong>Planeta regente:</strong> <span id="rPlanet"></span></span>
+      <span><strong>Rasgos:</strong> <span id="rTraits"></span></span>
+    </div>
+    <button class="draw-btn" id="printBtn">🖨️ Imprimir / Guardar como PDF</button>
+    <p class="cta-line">✨ Luce tu signo — <a href="https://www.amazon.com/s?k=zodiac+sign+jewelry&tag=sillydragonca-20" target="_blank" rel="sponsored noopener">compra joyería del zodiaco →</a></p>
+  </div>
+</div>
+
+<div id="sitefooter">
+  &copy; Tonto Axolote &middot; <a href="index.html">Inicio</a>
+  <p class="disclaimer">Este horóscopo se ofrece solo con fines de entretenimiento. Como Afiliado de Amazon, Tonto Axolote gana por compras que califiquen.</p>
+</div>
+
+<script>
+(function(){
+  const ZODIAC = [
+    { key:'aries', sym:'♈', name:'Aries', dates:'21 mar – 19 abr', element:'Fuego', planet:'Marte', traits:'Audaz, enérgico, competitivo' },
+    { key:'taurus', sym:'♉', name:'Tauro', dates:'20 abr – 20 may', element:'Tierra', planet:'Venus', traits:'Constante, paciente, leal' },
+    { key:'gemini', sym:'♊', name:'Géminis', dates:'21 may – 20 jun', element:'Aire', planet:'Mercurio', traits:'Curioso, ingenioso, adaptable' },
+    { key:'cancer', sym:'♋', name:'Cáncer', dates:'21 jun – 22 jul', element:'Agua', planet:'Luna', traits:'Protector, intuitivo, cariñoso' },
+    { key:'leo', sym:'♌', name:'Leo', dates:'23 jul – 22 ago', element:'Fuego', planet:'Sol', traits:'Confiado, generoso, dramático' },
+    { key:'virgo', sym:'♍', name:'Virgo', dates:'23 ago – 22 sep', element:'Tierra', planet:'Mercurio', traits:'Práctico, preciso, servicial' },
+    { key:'libra', sym:'♎', name:'Libra', dates:'23 sep – 22 oct', element:'Aire', planet:'Venus', traits:'Diplomático, justo, sociable' },
+    { key:'scorpio', sym:'♏', name:'Escorpio', dates:'23 oct – 21 nov', element:'Agua', planet:'Plutón', traits:'Intenso, ingenioso, determinado' },
+    { key:'sagittarius', sym:'♐', name:'Sagitario', dates:'22 nov – 21 dic', element:'Fuego', planet:'Júpiter', traits:'Aventurero, honesto, optimista' },
+    { key:'capricorn', sym:'♑', name:'Capricornio', dates:'22 dic – 19 ene', element:'Tierra', planet:'Saturno', traits:'Disciplinado, ambicioso, responsable' },
+    { key:'aquarius', sym:'♒', name:'Acuario', dates:'20 ene – 18 feb', element:'Aire', planet:'Urano', traits:'Independiente, innovador, humanitario' },
+    { key:'pisces', sym:'♓', name:'Piscis', dates:'19 feb – 20 mar', element:'Agua', planet:'Neptuno', traits:'Imaginativo, compasivo, soñador' }
+  ];
+  const TEMPLATES = [
+    "Hoy favorece las decisiones audaces — confía en el instinto que normalmente dudarías.",
+    "Una conversación hoy podría abrir una puerta que no esperabas. Mantente abierto.",
+    "Antes de comprometerte con algo financiero hoy, tómate un segundo momento para pensarlo.",
+    "Tu energía es contagiosa hoy; úsala para unir a la gente.",
+    "Algo que has estado posponiendo es más fácil de lo que crees — empieza poco a poco.",
+    "Un pequeño acto de paciencia hoy evita un dolor de cabeza mayor mañana.",
+    "Confía en tu instinto por encima de la opinión del grupo hoy.",
+    "Una vieja idea merece una segunda oportunidad — revísala con ojos frescos.",
+    "Hoy premia el enfoque sobre hacer varias cosas a la vez. Elige una y termínala.",
+    "Un cumplido o palabra amable hoy llegará más lejos de lo que esperas.",
+    "Tu curiosidad te lleva a algo útil hoy — síguela.",
+    "Descansar cuenta como productividad hoy. No te lo saltes.",
+    "Un pequeño desacuerdo hoy no vale la energía — déjalo pasar.",
+    "Notarás un detalle que otros pasan por alto hoy. Coméntalo.",
+    "Hoy es un buen día para pedir ayuda en vez de hacerlo todo tú solo.",
+    "Tus planes podrían cambiar hoy — el nuevo rumbo resulta mejor de todas formas.",
+    "Una solución creativa gana hoy sobre la obvia.",
+    "Alguien de tu pasado podría reaparecer hoy, para bien.",
+    "Hoy es el día para por fin enviar ese mensaje que has estado escribiendo.",
+    "Mantén tu círculo pequeño hoy — calidad sobre cantidad.",
+    "Una tarea rutinaria hoy te enseña algo inesperadamente útil.",
+    "Los asuntos de dinero fluyen mejor hoy si revisas los detalles dos veces.",
+    "Tu sentido del humor es tu mejor herramienta hoy.",
+    "Hoy favorece escuchar más que hablar.",
+    "Una caminata corta hoy aclara un problema que has estado pensando demasiado."
+  ];
+  function dayOfYear(){ const now = new Date(); const start = new Date(now.getFullYear(), 0, 0); return Math.floor((now - start) / 86400000); }
+  function readingFor(idx){ const doy = dayOfYear(); return TEMPLATES[(doy * 7 + idx * 13) % TEMPLATES.length]; }
+
+  const grid = document.getElementById('signGrid');
+  ZODIAC.forEach((z, idx) => {
+    const btn = document.createElement('button');
+    btn.className = 'sign-btn';
+    btn.dataset.idx = idx;
+    btn.innerHTML = `<span class="sym">${z.sym}</span><span class="name">${z.name}</span>`;
+    btn.addEventListener('click', () => selectSign(idx));
+    grid.appendChild(btn);
+  });
+
+  function selectSign(idx){
+    const z = ZODIAC[idx];
+    document.querySelectorAll('.sign-btn').forEach(b => b.classList.toggle('active', Number(b.dataset.idx) === idx));
+    document.getElementById('rSym').textContent = z.sym;
+    document.getElementById('rName').textContent = z.name;
+    document.getElementById('rDates').textContent = z.dates;
+    document.getElementById('rToday').textContent = readingFor(idx);
+    document.getElementById('rElement').textContent = z.element;
+    document.getElementById('rPlanet').textContent = z.planet;
+    document.getElementById('rTraits').textContent = z.traits;
+    document.getElementById('readingCard').classList.add('show');
+    document.getElementById('readingCard').scrollIntoView({ behavior:'smooth', block:'nearest' });
+  }
+  document.getElementById('printBtn').addEventListener('click', () => window.print());
+
+  (function autoSelect(){
+    const now = new Date();
+    const m = now.getMonth() + 1, d = now.getDate();
+    const ranges = [
+      [0,3,21,4,19],[1,4,20,5,20],[2,5,21,6,20],[3,6,21,7,22],[4,7,23,8,22],[5,8,23,9,22],
+      [6,9,23,10,22],[7,10,23,11,21],[8,11,22,12,21],[9,12,22,1,19],[10,1,20,2,18],[11,2,19,3,20]
+    ];
+    for (const [idx, m1, d1, m2, d2] of ranges){
+      if ((m === m1 && d >= d1) || (m === m2 && d <= d2)){ selectSign(idx); return; }
+    }
+    selectSign(0);
+  })();
+})();
+</script>
+<script src="tip-widget.js"></script>
+</body>
+</html>
