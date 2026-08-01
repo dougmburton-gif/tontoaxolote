@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9232900363298551" crossorigin="anonymous"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦎</text></svg>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Héroes del Fútbol y Noticias | Tonto Axolote</title>
+<meta name="description" content="Noticias de fútbol fáciles de leer, héroes del balón, equipos pro y semi-pro, fútbol juvenil y becas en universidades de América y el mundo.">
+<style>
+  :root{
+    --cream:#fbf3e3; --honey:#f4b942; --honey-deep:#d99a2b;
+    --leaf:#7fae6a; --leaf-deep:#5c8a49;
+    --brown:#6b4a2f; --brown-deep:#4a3220;
+    --ink:#3a2a1a; --card:#fffdf8; --card-edge:#e8d9b8;
+    --sky:#a8d8e8; --pitch:#2e7d32; --pitch-deep:#1b5e20;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:"Comic Sans MS","Trebuchet MS",Verdana,sans-serif;
+    background:linear-gradient(180deg, var(--sky) 0%, var(--cream) 35%);
+    color:var(--ink); min-height:100%;
+  }
+  #topnav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px; background:rgba(255,253,248,.85); backdrop-filter:blur(6px);
+    border-bottom:4px solid var(--honey); flex-wrap:wrap; gap:10px;
+  }
+  #topnav .brand{font-size:22px; font-weight:bold; color:var(--brown-deep); text-decoration:none; display:flex; align-items:center; gap:8px;}
+  #topnav .nav-links{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+  .nav-btn{
+    display:inline-flex; align-items:center; gap:6px; background:var(--leaf); color:#fff;
+    text-decoration:none; padding:9px 16px; border-radius:999px; font-weight:bold; font-size:14px;
+    border:2px solid var(--leaf-deep); transition:transform .15s ease;
+  }
+  .nav-btn:hover{ transform:translateY(-2px); }
+  .nav-btn.horses{ background:var(--brown); border-color:var(--brown-deep); }
+  .nav-btn.soccer{ background:var(--pitch); border-color:var(--pitch-deep); }
+  .nav-btn.month{ background:#f2a0b8; border-color:#c96e8a; }
+  .nav-btn.memory{ background:#5f9ab8; border-color:#3f7690; }
+  .nav-btn.lottery{ background:#c9944f; border-color:#a06f2f; }
+  .nav-btn.horoscope{ background:#9b6fc9; border-color:#6f3fa0; }
+  .nav-btn.numerology{ background:#6fc9a0; border-color:#3fa06f; }
+  .nav-btn.kids{background:var(--honey); border-color:var(--honey-deep); color:#4a3300;}
+
+  .wrap{ max-width:920px; margin:0 auto; padding:36px 20px 60px; }
+  .masthead{ text-align:center; margin-bottom:24px; }
+  .masthead h1{ font-size:2rem; color:var(--brown-deep); margin-bottom:8px; }
+  .masthead p{ color:var(--brown); font-size:.95rem; max-width:640px; margin:0 auto; line-height:1.55; }
+
+  .tab-row{
+    display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:24px 0 20px;
+  }
+  .tab-btn{
+    background:var(--card); border:2px solid var(--card-edge); color:var(--brown-deep);
+    padding:10px 16px; border-radius:999px; font-weight:bold; font-size:.85rem; cursor:pointer;
+    font-family:inherit;
+  }
+  .tab-btn.active{ background:var(--pitch); border-color:var(--pitch-deep); color:#fff; }
+
+  .panel{
+    background:var(--card); border:3px solid var(--card-edge); border-radius:20px;
+    padding:22px; margin-bottom:20px;
+  }
+  .panel h2{ font-size:1.2rem; color:var(--brown-deep); margin-bottom:10px; }
+  .panel p, .panel li{ font-size:.88rem; line-height:1.55; color:var(--brown); }
+  .panel ul{ padding-left:1.2rem; margin-top:8px; }
+
+  .hero-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:12px; }
+  @media (max-width:640px){ .hero-grid{ grid-template-columns:1fr; } }
+  .hero-card{
+    background:#fff; border:2px solid var(--card-edge); border-radius:16px; padding:14px;
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .hero-card .emoji{ font-size:2.2rem; flex:none; }
+  .hero-card h3{ font-size:.95rem; color:var(--brown-deep); margin-bottom:4px; }
+  .hero-card p{ font-size:.78rem; margin:0; }
+
+  .news-item{
+    padding:12px 0; border-bottom:1px dashed var(--card-edge);
+  }
+  .news-item:last-child{ border-bottom:none; }
+  .news-tag{ font-size:.65rem; font-weight:bold; color:var(--pitch-deep); display:block; margin-bottom:4px; }
+  .news-item a{ color:var(--brown-deep); font-weight:bold; text-decoration:none; font-size:.88rem; }
+  .news-item a:hover{ text-decoration:underline; }
+  .news-date{ display:block; font-size:.7rem; color:var(--brown); margin-top:4px; opacity:.85; }
+  .feed-empty{ font-size:.85rem; color:var(--brown); font-style:italic; }
+  #news-status{ font-size:.75rem; color:var(--brown); margin-bottom:10px; text-align:center; }
+
+  .rank-table{ width:100%; border-collapse:collapse; font-size:.78rem; margin-top:10px; }
+  .rank-table th, .rank-table td{ padding:8px 6px; text-align:left; border-bottom:1px solid var(--card-edge); }
+  .rank-table th{ color:var(--brown-deep); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; }
+  .note{ font-size:.72rem; color:var(--brown); opacity:.9; margin-top:12px; line-height:1.45; }
+
+  #sitefooter{ text-align:center; padding:20px; font-size:.75rem; color:var(--brown); }
+  #sitefooter .disclaimer{ max-width:600px; margin:8px auto 0; opacity:.8; line-height:1.5; }
+</style>
+</head>
+<body>
+
+<nav id="topnav">
+  <a href="index.html" class="brand">🦎 Tonto Axolote</a>
+  <div class="nav-links">
+    <a href="traductor.html" class="nav-btn">🗣️ Traductor</a>
+    <a href="caballos.html" class="nav-btn horses">🐴 Razas de Caballos</a>
+    <a href="futbol-heroes.html" class="nav-btn soccer">⚽ Fútbol</a>
+    <a href="palabra-del-mes.html" class="nav-btn month">📅 Palabra del Mes</a>
+    <a href="trucos-de-memoria.html" class="nav-btn memory">🧠 Trucos de Memoria</a>
+    <a href="loteria.html" class="nav-btn lottery">🎰 Números de la Suerte</a>
+    <a href="horoscopo.html" class="nav-btn horoscope">✨ Horóscopo</a>
+    <a href="numerologia.html" class="nav-btn numerology">🔢 Numerología</a>
+    <a href="ninos.html" class="nav-btn kids">✨ Para los Niños ✨</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="masthead">
+    <h1>⚽ Héroes del Fútbol</h1>
+    <p>Aquí lees noticias cortas, conoces jugadores famosos y aprendes de equipos grandes y chicos. El fútbol es de todo el mundo: América, Europa, África, Asia y más.</p>
+  </div>
+
+  <div class="tab-row" role="tablist">
+    <button type="button" class="tab-btn active" data-tab="noticias" aria-selected="true">📰 Noticias</button>
+    <button type="button" class="tab-btn" data-tab="heroes" aria-selected="false">⭐ Héroes</button>
+    <button type="button" class="tab-btn" data-tab="pro" aria-selected="false">🏆 Pros del mundo</button>
+    <button type="button" class="tab-btn" data-tab="semipro" aria-selected="false">🥈 Semi-pro</button>
+    <button type="button" class="tab-btn" data-tab="juvenil" aria-selected="false">👟 Jóvenes</button>
+    <button type="button" class="tab-btn" data-tab="uni" aria-selected="false">🎓 Universidad</button>
+  </div>
+
+  <!-- NOTICIAS -->
+  <section class="panel" data-panel="noticias">
+    <h2>Noticias de hoy</h2>
+    <p id="news-status"></p>
+    <div id="news-list">
+      <p class="feed-empty">Cargando titulares…</p>
+    </div>
+    <p class="note">Los titulares vienen de BBC Mundo Deportes y BBC Sport. Toca el enlace para leer la nota completa. Tonto Axolote no escribe esas noticias — solo las recoge para que las encuentres fácil.</p>
+  </section>
+
+  <!-- HÉROES -->
+  <section class="panel" data-panel="heroes" hidden>
+    <h2>Jugadores que mucha gente admira</h2>
+    <p>Un héroe del fútbol no siempre mete el gol ganador. A veces ayuda a su equipo, a su barrio o a otros niños que quieren jugar.</p>
+    <div class="hero-grid">
+      <div class="hero-card">
+        <span class="emoji">🇦🇷</span>
+        <div>
+          <h3>Lionel Messi</h3>
+          <p>Argentina. Bajo y rápido. Muchos dicen que es uno de los mejores de la historia. Ganó el Mundial en 2022.</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <span class="emoji">🇧🇷</span>
+        <div>
+          <h3>Marta</h3>
+          <p>Brasil. Reina del fútbol femenino por muchos años. Anima a las niñas a jugar sin miedo.</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <span class="emoji">🇲🇽</span>
+        <div>
+          <h3>Chicharito Hernández</h3>
+          <p>México. Delantero que jugó en Europa y en la MLS. Muchos niños mexicanos lo conocen por su alegría al festejar goles.</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <span class="emoji">🇺🇸</span>
+        <div>
+          <h3>Christian Pulisic</h3>
+          <p>Estados Unidos. Rápido por la banda. Muchos lo llaman “Captain America” cuando juega con su selección.</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <span class="emoji">🇫🇷</span>
+        <div>
+          <h3>Kylian Mbappé</h3>
+          <p>Francia. Muy veloz. Ganó el Mundial siendo joven. Corre como si tuviera alas.</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <span class="emoji">🇳🇬</span>
+        <div>
+          <h3>Victor Osimhen</h3>
+          <p>Nigeria. Delantero fuerte. En África muchos lo ven como ejemplo de trabajo y constancia.</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <span class="emoji">🇪🇸</span>
+        <div>
+          <h3>Salma Paralluelo</h3>
+          <p>España. Joven estrella del fútbol femenino. Ayudó a su país a ganar el Mundial femenino en 2023.</p>
+        </div>
+      </div>
+      <div class="hero-card">
+        <span class="emoji">🇯🇵</span>
+        <div>
+          <h3>Takefusa Kubo</h3>
+          <p>Japón. Técnico con buen control. Muestra que en Asia también hay mucho talento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROS -->
+  <section class="panel" data-panel="pro" hidden>
+    <h2>Ligas profesionales (mundo)</h2>
+    <p>Estos equipos y ligas juegan a nivel pro. La tabla es una guía simple — no cambia sola cada semana. Para resultados al minuto, mira la fuente oficial de cada liga.</p>
+    <table class="rank-table">
+      <thead><tr><th>Región</th><th>Liga</th><th>Equipos que muchos conocen</th></tr></thead>
+      <tbody>
+        <tr><td>🇲🇽 Norteamérica</td><td>Liga MX</td><td>América, Chivas, Monterrey, Tigres</td></tr>
+        <tr><td>🇺🇸 Norteamérica</td><td>MLS</td><td>LA Galaxy, Inter Miami, Seattle Sounders</td></tr>
+        <tr><td>🇧🇷 Sudamérica</td><td>Brasileirão</td><td>Flamengo, Palmeiras, Corinthians</td></tr>
+        <tr><td>🇦🇷 Sudamérica</td><td>Liga Argentina</td><td>Boca, River, Racing</td></tr>
+        <tr><td>🇨🇴 Sudamérica</td><td>Liga Colombia</td><td>Nacional, Millonarios, América de Cali</td></tr>
+        <tr><td>🇪🇸 Europa</td><td>La Liga</td><td>Real Madrid, Barcelona, Atlético</td></tr>
+        <tr><td>🇬🇧 Europa</td><td>Premier League</td><td>Arsenal, Liverpool, Man City</td></tr>
+        <tr><td>🇩🇪 Europa</td><td>Bundesliga</td><td>Bayern, Dortmund, Leverkusen</td></tr>
+        <tr><td>🇳🇬 África</td><td>Liga Nigeria</td><td>Enyimba, Rangers Int., Kano Pillars</td></tr>
+        <tr><td>🇪🇬 África</td><td>Liga Egipto</td><td>Al Ahly, Zamalek</td></tr>
+        <tr><td>🇯🇵 Asia</td><td>J-League</td><td>Kashima, Urawa, Yokohama F·M</td></tr>
+        <tr><td>🇸🇦 Asia</td><td>Liga Saudí</td><td>Al Hilal, Al Nassr, Al Ittihad</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Próximo paso: conectar resultados en vivo con una API. Por ahora esto es un mapa para orientarte.</p>
+  </section>
+
+  <!-- SEMI-PRO -->
+  <section class="panel" data-panel="semipro" hidden>
+    <h2>Fútbol semi-profesional</h2>
+    <p>Semi-pro significa: juegan muy bien, pero no siempre en la liga más famosa del país. Muchos soñaban con llegar a primera división.</p>
+    <table class="rank-table">
+      <thead><tr><th>País</th><th>Liga semi-pro</th><th>Qué es</th></tr></thead>
+      <tbody>
+        <tr><td>🇺🇸 EE.UU.</td><td>USL League One</td><td>Tercer nivel. Equipos como Union Omaha o Central Valley Fuego.</td></tr>
+        <tr><td>🇺🇸 EE.UU.</td><td>NPSL</td><td>Liga amateur fuerte en verano. Muchos son clubes de barrio que crecieron.</td></tr>
+        <tr><td>🇲🇽 México</td><td>Liga Premier</td><td>Segunda y tercera fuerza. Puerta para subir a Liga de Expansión y Liga MX.</td></tr>
+        <tr><td>🇬🇧 Inglaterra</td><td>National League</td><td>Paso hacia la League Two. Muy competitiva.</td></tr>
+        <tr><td>🇪🇸 España</td><td>Primera RFEF</td><td>Regional pro. Equipos pequeños con afición leal.</td></tr>
+      </tbody>
+    </table>
+    <p class="note">No hay una tabla única para todo el planeta. Cada país organiza sus niveles distinto.</p>
+  </section>
+
+  <!-- JUVENIL -->
+  <section class="panel" data-panel="juvenil" hidden>
+    <h2>Fútbol juvenil y amateur</h2>
+    <p>Antes de ser pro, casi todos jugaron de niños: en la escuela, en el barrio o en un club pequeño.</p>
+    <ul>
+      <li><strong>EE.UU.:</strong> clubes ECNL, MLS NEXT y ligas locales. Muchos entrenamientos los paga la familia.</li>
+      <li><strong>México:</strong> academias de equipos grandes (Tigres, Pachuca, etc.) y ligas infantiles en cada estado.</li>
+      <li><strong>Brasil y Argentina:</strong> canteras famosas desde chicos. Pelé empezó con un balón de trapo.</li>
+      <li><strong>Europa:</strong> escuelas de fútbol ligadas a clubes pro. Ajax en Holanda es un ejemplo famoso.</li>
+      <li><strong>África:</strong> academias locales y torneos juveniles. Mucho talento sale de ligas de barrio.</li>
+    </ul>
+    <p class="note">No tenemos un feed de cada equipo infantil del mundo — sería imposible. Si quieres que agreguemos tu liga, escríbenos más adelante.</p>
+  </section>
+
+  <!-- UNIVERSIDAD -->
+  <section class="panel" data-panel="uni" hidden>
+    <h2>Becas y fútbol en la universidad</h2>
+    <p>En algunos países puedes estudiar y jugar fútbol a la vez. Eso se llama beca deportiva o fútbol universitario.</p>
+    <ul>
+      <li><strong>Estados Unidos (NCAA):</strong> universidades Division I, II y III dan becas. Debes tener buenas notas y buen nivel de juego. El reclutamiento empieza en preparatoria (high school).</li>
+      <li><strong>Estados Unidos (NAIA y NJCAA):</strong> opciones más pequeñas pero reales. Buen puente si vienes de México o Centroamérica.</li>
+      <li><strong>México:</strong> muchas universidades públicas (UNAM, IPN) tienen equipos representativos. No siempre hay beca como en EE.UU., pero sí orgullo y competencia.</li>
+      <li><strong>Colombia, Chile, Argentina:</strong> ligas universitarias fuertes. A veces el camino pasa por torneos locales antes del fútbol pro.</li>
+      <li><strong>Europa:</strong> menos becas “deportivas” como en EE.UU. Muchos jóvenes entran a academias de clubes pro en vez de ir a la uni a jugar.</li>
+    </ul>
+    <p class="note">Cuidado con quien te promete “beca segura” por dinero. Pide siempre papeles oficiales de la escuela.</p>
+  </section>
+</div>
+
+<div id="sitefooter">
+  &copy; Tonto Axolote
+  <p class="disclaimer">Noticias enlazadas son de otros sitios. Rankings y héroes son guías educativas. No somos agentes de jugadores ni reclutadores. Solo por diversión y aprendizaje.</p>
+</div>
+
+<script src="futbol-feed.js"></script>
+<script src="tip-widget.js"></script>
+</body>
+</html>
