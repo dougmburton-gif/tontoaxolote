@@ -8,7 +8,15 @@
     "Nunca Entres Sin Whisky — Norte, Este, Sur, Oeste, en sentido horario en un mapa.",
     "Treinta días trae noviembre, con abril, junio y septiembre — los demás traen treinta y uno, menos febrero.",
     "El ajolote nunca pierde sus branquias ni sale del agua — a eso se le llama neotenia.",
-    "Escribe tu lista de pendientes antes de dormir — ayuda a que tu cerebro suelte el día y descanse mejor."
+    "Escribe tu lista de pendientes antes de dormir — ayuda a que tu cerebro suelte el día y descanse mejor.",
+    "\"Actually\" en inglés no significa \"actualmente\", sino \"en realidad\". Otro falso amigo para tener cuidado.",
+    "\"Library\" es biblioteca, no librería — la tienda donde compras libros se dice \"bookstore\".",
+    "Del 13 al 19 en inglés casi todos terminan en \"-teen\": thirteen, fourteen, fifteen, sixteen...",
+    "El ajolote puede regenerar sus patas, su cola e incluso partes de su corazón y su cerebro.",
+    "El nombre \"ajolote\" viene del náhuatl, y son originarios de los lagos de Xochimilco, en México.",
+    "Truco de los nudillos: los meses que caen sobre un nudillo tienen 31 días; los del hueco, 30 (o 28).",
+    "La regla 20-20-20: cada 20 minutos, mira algo lejano durante 20 segundos para descansar los ojos.",
+    "Ponle nombre para calmarlo — decir en voz alta lo que sientes (\"estoy nervioso\") tranquiliza la mente."
   ];
 
   function dayIndex(){
